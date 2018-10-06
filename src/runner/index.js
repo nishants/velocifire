@@ -10,7 +10,7 @@ import Editor     from './Editor';
 import Previewer  from './Previewer';
 
 import style from './index.scss';
-import {saveData, loadEditorData} from './actions';
+import {saveData, saveTemplate, loadEditorData} from './actions';
 
 class Runner extends React.Component{
   constructor(props){
@@ -22,14 +22,27 @@ class Runner extends React.Component{
     this.props.dispatch(saveData(data));
   }
 
+  onTemplateChange(data) {
+    this.props.dispatch(saveTemplate(data));
+  }
+
   render(){
-    let content = <div id="runner-app">
-      <ConsoleBar/>
-      <Editor
-        onDataChange={(data)=> this.onDataChange(data)}
-      />
-      <Previewer html={'<h1>This is the doc</h1>'}/>
-    </div>;
+    const
+      savedData = {
+        data: this.props.runner.data,
+        template: this.props.runner.template,
+      },
+
+      content = <div id="runner-app">
+        <ConsoleBar/>
+        <Editor
+          savedData={savedData}
+          onTemplateChange={(data) => this.onTemplateChange(data)}
+          onDataChange={(data) => this.onDataChange(data)}
+        />
+        <Previewer html={'<h1>This is the doc</h1>'}/>
+      </div>;
+
     return this.props.runner.ready ? content : <Loader/>;
   }
 }

@@ -11,6 +11,11 @@ export const saveData = payload => ({
   payload
 });
 
+export const saveTemplate = payload => ({
+  type: RUNNER_ACTIONS.SAVE_TEMPLATE,
+  payload
+});
+
 export const loadEditorData = () => ({type: RUNNER_ACTIONS.LOAD_EDITOR_DATA});
 
 export const editorDataLoaded = (data, template) => ({
