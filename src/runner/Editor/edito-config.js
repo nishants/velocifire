@@ -3,5 +3,11 @@ export default {
   autoIndent: true,
   formatOnPaste: true,
   formatOnType: true,
-  minimap: {enabled: false}
+  minimap: {enabled: false},
+  highlightActiveIndentGuide: false,
+  renderLineHighlight: 'line',
+  scrollbar: {
+    horizontal: 'hidden',
+    vertical: 'hidden',
+  }
 };

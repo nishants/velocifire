@@ -3,7 +3,7 @@ $checkbox-size: 20px;
 .console-bar{
   @extend .resize-container;
   padding: 10px;
-  border: 1px solid $light-border-color;
+  background-color: $top-bar-bg;
 
   button{
     height: $console-buttons-height;

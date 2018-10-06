@@ -2,6 +2,7 @@
 $data-editor-width: 300px;
 .editor-section{
   height: calc(75vh - 70px);
+  background-color: $background-contrast-color;
   @extend .resize-container;
 
   .data-editor{
