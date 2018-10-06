@@ -5,14 +5,15 @@ import style from './index.scss';
 import DataEditor from './DataEditor';
 import TemplateEditor from './TemplateEditor';
 import editorConfig from './edito-config';
+import PropTypes from "prop-types";
 
-const Editor = () => (
+const Editor = ({onDataChange}) => (
   <div styleName="editor-section">
     <div styleName="data-editor">
       <DataEditor
         value={''}
         options={editorConfig}
-        onChange={(code)=> console.log('data edited ', code)}
+        onChange={onDataChange}
         editorDidMount={()=> console.log('data editor loaded')}
       />
     </div>
@@ -26,5 +27,9 @@ const Editor = () => (
     </div>
   </div>
 );
+
+Editor.propTypes = {
+  onDataChange: PropTypes.func
+};
 
 export default CSSModules(Editor, style);

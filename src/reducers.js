@@ -1,6 +1,6 @@
 import {combineReducers}  from 'redux';
 
-import runner from './runner/reducer';
+import runner from './Runner/reducer';
 
 export default combineReducers({
   runner

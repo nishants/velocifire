@@ -1,12 +1,23 @@
-import {loadApp} from './actions';
+import {RUNNER_ACTIONS} from './actions';
 
-const reducer = (state = {loaded: false}, action) => {
+const INITIAL_STATE = {
+  data: JSON.stringify({customer: {name: 'mira'}}),
+  template: '<h1>hello $customer.name</h1>',
+  autoUpdate: false,
+  ready: false,
+  compiledHTML: ''
+};
+
+const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case  loadApp :
+  case RUNNER_ACTIONS.EDITOR_DATA_LOADED:
     return {
-      loaded: true,
-      ...state
+      ...state,
+      data: action.payload.data,
+      template: action.payload.template,
+      ready: true,
     };
+
   default:
     return state;
   }

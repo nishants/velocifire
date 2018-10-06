@@ -9,6 +9,12 @@ const
   ROOT_DIR = path.join(__dirname, '..');
 
 module.exports  = {
+  entry: {
+    app: [
+      'babel-polyfill',
+      './src/index'
+    ]
+  },
   output: {
     filename: '[name]-[contenthash].js'
   },
