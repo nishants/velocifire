@@ -1,3 +1,7 @@
-.theme-bg-colored{
-  background: $theme_color;
+.resize-container:after {
+  content:"";
+  display:table;
+  clear:both;
 }
+
+$console-buttons-height: 50px;

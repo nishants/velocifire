@@ -52,7 +52,7 @@ module.exports  = {
     }),
 
     new HTMLWebpackPlugin({
-      title: 'Boilerplate',
+      title: 'Velocifire',
       filename: 'index.html',
       template: './src/index.html'
     }),
