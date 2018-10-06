@@ -17,6 +17,21 @@ const reducer = (state = INITIAL_STATE, action) => {
       template: action.payload.template,
       ready: true,
     };
+  case RUNNER_ACTIONS.TEMPLATE_COMPILED:
+    return {
+      ...state,
+      compiledHTML: action.payload,
+    };
+  case RUNNER_ACTIONS.SAVE_TEMPLATE:
+    return {
+      ...state,
+      template: action.payload,
+    };
+  case RUNNER_ACTIONS.SAVE_DATA:
+    return {
+      ...state,
+      data: action.payload,
+    };
 
   default:
     return state;

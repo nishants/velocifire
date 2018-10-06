@@ -10,12 +10,19 @@ import Editor     from './Editor';
 import Previewer  from './Previewer';
 
 import style from './index.scss';
-import {saveData, saveTemplate, loadEditorData} from './actions';
+import {saveData, compileTemplate, saveTemplate, loadEditorData} from './actions';
 
 class Runner extends React.Component{
   constructor(props){
     super(props);
     props.dispatch(loadEditorData());
+  }
+
+  compileTemplate() {
+    this.props.dispatch(compileTemplate({
+      data: this.props.runner.data,
+      template: this.props.runner.template,
+    }));
   }
 
   onDataChange(data) {
@@ -32,15 +39,15 @@ class Runner extends React.Component{
         data: this.props.runner.data,
         template: this.props.runner.template,
       },
-
+      compiledHTML = this.props.runner.compiledHTML,
       content = <div id="runner-app">
-        <ConsoleBar/>
+        <ConsoleBar onRun={() => this.compileTemplate()}/>
         <Editor
           savedData={savedData}
           onTemplateChange={(data) => this.onTemplateChange(data)}
           onDataChange={(data) => this.onDataChange(data)}
         />
-        <Previewer html={'<h1>This is the doc</h1>'}/>
+        <Previewer html={compiledHTML}/>
       </div>;
 
     return this.props.runner.ready ? content : <Loader/>;
