@@ -1,11 +1,12 @@
 const
-    path = require('path'),
+  path = require('path'),
 
-    CleanPlugin = require('clean-webpack-plugin'),
-    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    HTMLWebpackPlugin    = require('html-webpack-plugin'),
+  CleanPlugin = require('clean-webpack-plugin'),
+  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+  HTMLWebpackPlugin    = require('html-webpack-plugin'),
+  MonacoWebpackPlugin = require('monaco-editor-webpack-plugin'),
 
-    ROOT_DIR = path.join(__dirname, '..');
+  ROOT_DIR = path.join(__dirname, '..');
 
 module.exports  = {
   output: {
@@ -39,7 +40,14 @@ module.exports  = {
             }
           }
         ]
+      },
+      {
+        test: /\.css/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader'}]
       }
+
     ]
   },
   plugins: [
@@ -56,5 +64,7 @@ module.exports  = {
       filename: 'index.html',
       template: './src/index.html'
     }),
+
+    new MonacoWebpackPlugin()
   ]
 }

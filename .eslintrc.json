@@ -23,6 +23,7 @@
         "react"
     ],
     "rules": {
+        "allowTemplateLiterals": true,
         "indent": [
             "error",
             2

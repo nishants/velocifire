@@ -1,0 +1,40 @@
+$checkbox-size: 20px;
+
+.console-bar{
+  @extend .resize-container;
+  padding: 10px;
+  border: 1px solid $light-border-color;
+
+  button{
+    height: $console-buttons-height;
+    margin: 0;
+    padding: 0 20px;
+    outline: 0;
+    margin-right: 10px;
+    border-radius: 8px;
+    min-width: 110px;
+    cursor: pointer;
+  }
+
+  .left-options{
+    float: left;
+  }
+
+  .right-options{
+    float: right;
+    .auto-run-button{
+      padding: 20px;
+      cursor: pointer;
+
+      .auto-run-checkbox{
+        height: $checkbox-size;
+        width : $checkbox-size;
+        margin-right: 10px;
+        border: 1px solid $light-border-color;
+      }
+      label{
+        cursor: inherit;
+      }
+    }
+  }
+}

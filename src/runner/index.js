@@ -1,25 +1,18 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 
+import ConsoleBar from './ConsoleBar';
+import Editor     from './Editor';
+import Previewer  from './Previewer';
+
 import style from './index.scss';
 
-const Runner = ()=> {
+const Runner = () => {
   return (
-    <div styleName='console-bar'>
-      <div styleName='left-options'>
-        <button>Output HTML</button>
-        <button>Send Mail</button>
-      </div>
-
-      <div styleName='right-options'>
-        <span styleName='auto-run-button'>
-          <span styleName="auto-run-checkbox">
-            <i className="fa fa-check"></i>
-          </span>
-          <label>Auto</label>
-        </span>
-        <button>Run</button>
-      </div>
+    <div id="runner-app">
+      <ConsoleBar/>
+      <Editor/>
+      <Previewer html={'<h1>This is the doc</h1>'}/>
     </div>
   );
 };

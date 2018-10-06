@@ -1,0 +1,19 @@
+
+$data-editor-width: 300px;
+.editor-section{
+  height: calc(75vh - 70px);
+  @extend .resize-container;
+
+  .data-editor{
+    float: left;
+    height: 100%;
+    width: $data-editor-width;
+  }
+
+  .template-editor{
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+    width: calc(100% - #{$data-editor-width + 10px});
+  }
+}
