@@ -5,7 +5,7 @@ import MonacoEditor from 'react-monaco-editor';
 
 const DataEditor = (props)=> (
   <MonacoEditor
-    language="json"
+    language="javascript"
     value={props.value}
     options={props.options}
     onChange={props.onChange}

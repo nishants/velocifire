@@ -14,10 +14,10 @@ const
 function* compileTemplate({payload}){
   const
     requestBody = {
-      data: JSON.parse(payload.data),
+      data: payload.data,
       template: payload.template
     },
-    response = yield call(axios.put, `${remote}/compile`, requestBody, {headers: remoteHeaders});
+    response = yield call(axios.put, `${remote}/compile2`, requestBody, {headers: remoteHeaders});
 
   yield put(templateCompiled(response.data));
 }
