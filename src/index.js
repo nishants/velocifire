@@ -1,5 +1,9 @@
-/* eslint-disable */
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import pageOne from "./page-one";
-import pageTwo from "./page-two";
-import reactApp from "./react-app";
+import Runner from './runner';
+
+ReactDOM.render(
+  <Runner/>,
+  document.getElementById('react-app')
+);
