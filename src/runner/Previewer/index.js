@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import style from './index.scss';
@@ -10,5 +11,8 @@ const Previewer = (props) => (
     </iframe>
   </div>
 );
+Previewer.propTypes = {
+  html: PropTypes.string,
+};
 
 export default CSSModules(Previewer, style);

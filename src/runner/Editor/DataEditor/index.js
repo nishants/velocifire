@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MonacoEditor from 'react-monaco-editor';
 
@@ -8,8 +9,14 @@ const DataEditor = (props)=> (
     value={props.value}
     options={props.options}
     onChange={props.onChange}
-    editorDidMount={props.editorDidMount}
   />
 );
+
+DataEditor.propTypes = {
+  value: PropTypes.string,
+  options  : PropTypes.object,
+  onChange  : PropTypes.func,
+};
+
 
 export default DataEditor;

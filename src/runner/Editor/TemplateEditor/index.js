@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MonacoEditor from 'react-monaco-editor';
 
-const DataEditor = (props)=> (
+const TempalteEditor = (props)=> (
   <MonacoEditor
     language="html"
     value={props.value}
     options={props.options}
     onChange={props.onChange}
-    editorDidMount={props.editorDidMount}
   />
 );
 
-export default DataEditor;
+TempalteEditor.propTypes = {
+  value: PropTypes.string,
+  options  : PropTypes.object,
+  onChange  : PropTypes.func,
+};
+
+
+export default TempalteEditor;
